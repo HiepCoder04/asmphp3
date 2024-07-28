@@ -34,6 +34,7 @@
                 <label for="remember">Remember Me</label>
             </div>
             <button type="submit" class="btn btn-primary">Đăng nhập</button>
+            <a href="{{route('register')}}" class="btn btn-success">Đăng kí</a>
         </form>
     </div>
 </body>

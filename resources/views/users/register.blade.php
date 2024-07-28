@@ -17,16 +17,16 @@
             @csrf
             <div class="mb-3">
                 Name:
-                <input type="text" class="form-control" name="name">
+                <input type="text" class="form-control" placeholder="Tên đăng nhập" name="name">
 
             </div>
             <div class="mb-3">
                 Email:
-                <input type="email" class="form-control" name="email">
+                <input type="email" class="form-control" placeholder="Email" name="email">
             </div>
             <div class="mb-3">
-            Password:
-            <input type="password" class="form-control" name="password">
+                Password:
+            <input type="password" class="form-control" placeholder="Mật khẩu" name="password">
             </div>
             <div class="mb-3">
                 <input type="checkbox" name="remember" id="remember">
