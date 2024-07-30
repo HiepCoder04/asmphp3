@@ -16,6 +16,7 @@
     <link rel="stylesheet" href="{{ asset('assets/css/templatemo-hexashop.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/css/owl-carousel.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/css/lightbox.css') }}">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
     @stack('style')
     <style>
         .product-title {

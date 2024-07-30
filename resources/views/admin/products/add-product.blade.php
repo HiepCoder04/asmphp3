@@ -22,7 +22,7 @@
                 </div>
                 <div class="card-body pt-2">                 
                         <div class="tab-pane fade show active" id="kt_stats_widget_16_tab_1">
-                            <form action="{{ route('admin.product.addPostProduct') }}" method="post">
+                            <form action="{{ route('admin.product.addPostProduct') }}" method="post" enctype="multipart/form-data">
                                 @csrf
                                 <div class="mb-3">
                                     <label for="nameSP" class="form-label">Tên sản phẩm</label>
@@ -44,6 +44,10 @@
                                             <option value="{{ $category->id }}">{{ $category->name }}</option>
                                         @endforeach
                                     </select>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="images" class="form-label">Ảnh sản phẩm</label>
+                                    <input type="file" name="images[]" id="images" class="form-control" multiple>
                                 </div>
                                 <button type="submit" class="btn btn-success">Thêm Mới</button>
                             </form>

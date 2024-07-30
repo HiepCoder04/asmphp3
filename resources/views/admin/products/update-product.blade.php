@@ -22,12 +22,12 @@
                 </div>
                 <div class="card-body pt-2">                 
                     <div class="tab-pane fade show active" id="kt_stats_widget_16_tab_1">
-                        <form action="{{ route('admin.product.updatePatchProduct', $product->id) }}" method="post">
+                        <form action="{{ route('admin.product.updatePatchProduct', $product->id) }}" method="post" enctype="multipart/form-data">
                             @method('patch')
                             @csrf
                             <div class="mb-3">
                                 <label for="nameSP" class="form-label">Tên sản phẩm</label>
-                                <input type="text" name="nameSP" id="nameSP" class="form-control" placeholder="Nhập tên sản phẩm" value="{{ $product->name }}" required >
+                                <input type="text" name="nameSP" id="nameSP" class="form-control" placeholder="Nhập tên sản phẩm" value="{{ $product->name }}" required>
                             </div>
                             <div class="mb-3">
                                 <label for="priceSP" class="form-label">Giá sản phẩm</label>
@@ -47,6 +47,15 @@
                                         </option>
                                     @endforeach
                                 </select>
+                            </div>
+                            <div class="mb-3">
+                                <label for="images" class="form-label">Ảnh sản phẩm</label>
+                                <input type="file" name="images[]" id="images" class="form-control" multiple>
+                                <div class="mt-2">
+                                    @foreach ($product->images as $image)
+                                        <img src="{{ Storage::url($image->image_url) }}" alt="{{ $product->name }}" width="100">
+                                    @endforeach
+                                </div>
                             </div>
                             <button type="submit" class="btn btn-success">Cập nhật sản phẩm</button>
                         </form>

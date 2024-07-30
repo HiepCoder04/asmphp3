@@ -40,6 +40,7 @@
                                             <th class="p-0 pb-3 min-w-150px text-center">Giá Tiền</th>
                                             <th class="p-0 pb-3 min-w-150px text-center">Mô tả</th>
                                             <th class="p-0 pb-3 min-w-150px text-center">Danh Mục</th>
+                                            <th class="p-0 pb-3 min-w-150px text-center">Ảnh sản phẩm</th>
                                             <th class="p-0 pb-3 min-w-100px text-center">ACTIONS</th>
                                         </tr>
                                     </thead>
@@ -51,6 +52,13 @@
                                                 <td class="text-center">{{ $value->price }}</td>
                                                 <td class="text-center">{{ $value->description }}</td>
                                                 <td class="text-center">{{ $value->category->name }}</td>
+                                                <td>
+                                                    @if ($value->images->count() > 0)
+                                                        <img src="{{ Storage::url($value->images->first()->image_url) }}" alt="{{ $value->name }}" width="100">
+                                                    @else
+                                                        Không có ảnh
+                                                    @endif
+                                                </td>
                                                 <td class="text-center">
                                                     <a href="{{route('admin.product.updateProduct', $value->id)}}" class="btn btn-warning btn-sm" >Sửa</a>
                                                     <button class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#deleteModal" data-bs-id = "{{ $value->id }}">Xóa</button>

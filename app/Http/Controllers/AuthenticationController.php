@@ -70,6 +70,19 @@ class AuthenticationController extends Controller
     }
     public function postRegister(Request $req)
     {
+        $req->validate([
+            'email' => ['required', 'email'],
+            'password' => ['required'],
+            'name' => ['required']
+        ], [
+            'email.required' => 'Email không được bỏ trống',
+            'email.email' => 'Email không đúng định dạng',
+            'password.required' => 'Password không được để trống',
+            'name' => 'Tên không được để trống',
+
+
+        ]);
+
         $check = User::where('email', $req->email)->exists();
         if ($check) {
             return redirect()->back()->with([

@@ -4,7 +4,7 @@
             <div class="col-12">
                 <nav class="main-nav">
                     <!-- ***** Logo Start ***** -->
-                    <a href="index.html" class="logo">
+                    <a href="{{route('users.home')}}" class="logo">
                         <img src="assets/images/logo.png">
                     </a>
                     <!-- ***** Logo End ***** -->
@@ -34,11 +34,18 @@
                         </li>
                         <li class="scroll-to-section"><a href="#explore">Explore</a></li>
                         @if(Auth::check())
-                            <li>
-                                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                    @csrf
-                                </form>
-                                <a href="#" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a>
+                            <li class="submenu">
+                                <a href="javascript:;">
+                                    <i class="fas fa-user"></i> {{ Auth::user()->name }}
+                                </a>
+                                <ul>
+                                    <li>
+                                        <form id="logout-form" action="{{ route('logout') }}" method="get" style="display: none;">
+                                            @csrf
+                                        </form>
+                                        <a href="#" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a>
+                                    </li>
+                                </ul>
                             </li>
                         @else
                             <li class="scroll-to-section"><a href="{{ route('login') }}">Login</a></li>
